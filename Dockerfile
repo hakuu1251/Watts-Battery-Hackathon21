@@ -6,5 +6,5 @@ COPY . /app
 WORKDIR /app
 
 RUN npm install
-
-ENTRYPOINT ['run', 'serve']
+RUN npm run build
+RUN cp dist /web-data/front/
