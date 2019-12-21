@@ -16,7 +16,7 @@
             async_comp:function(){
                 let vm = this;
                 this.$http
-                    .get('http://127.0.0.1:8000/wats/get-report/WB-4E5436373555029B/?date=2019-12-21%2013:19:55')
+                    .get('/wats/get-report/WB-4E5436373555029B/?date=2019-12-21%2013:19:55')
                     .then(function (response) {
                         vm.series = response.data;
                     });
