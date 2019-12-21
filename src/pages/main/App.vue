@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <navadapt/>
+        <Nav1/>
         <Nav/>
         <logo/>
         <Main/>
@@ -9,7 +9,7 @@
 
 <script>
     import Nav from '../../components/nav.vue'
-    import navadapt from '../../components/navadapt.vue'
+    import Nav1 from '../../components/nav1.vue'
     import logo from '../../components/logo.vue'
     import Main from '../../components/main.vue'
 
@@ -17,7 +17,7 @@
     export default {
         name: 'app',
         components: {
-            Nav, navadapt, logo, Main
+            Nav, Nav1, logo, Main
         }
     }
 </script>

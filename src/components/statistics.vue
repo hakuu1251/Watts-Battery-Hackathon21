@@ -4,7 +4,9 @@
     </div>
 </template>
 
+
 <script>
+
     import VueApexCharts from 'vue-apexcharts'
 
     export default {
