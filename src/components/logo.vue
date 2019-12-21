@@ -11,7 +11,14 @@
 </script>
 
 <style scoped>
-    .logo-main {
-        margin-left: 120px;
+    @media (min-width: 840px) {
+        .logo-main {
+            margin-left: 120px;
+        }
+    }
+    @media (max-width: 840px) {
+        .logo-main {
+            text-align: center;
+        }
     }
 </style>

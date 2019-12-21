@@ -6,18 +6,20 @@
 
 <script>
     import VueApexCharts from 'vue-apexcharts'
+
     export default {
         name: 'statistics',
         components: {
             apexchart: VueApexCharts,
         },
-        created() {
+        async_comp:function(){
             let vm = this;
             this.$http
-                .get('http://127.0.0.1:8000/1.json')
+                .get('http://34.245.194.249/wats/get-report/WB-4E5436373555029B/?date=2019-12-21%2013:19:55')
                 .then(function (response) {
                     vm.series = response.data;
                 });
+            setTimeout('async_comp()', 1000);
         },
         data: function () {
             return {
