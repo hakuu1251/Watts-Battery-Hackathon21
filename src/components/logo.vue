@@ -21,4 +21,9 @@
             text-align: center;
         }
     }
+    @media (max-width: 590px) {
+        .logo-main {
+            display: none;
+        }
+    }
 </style>

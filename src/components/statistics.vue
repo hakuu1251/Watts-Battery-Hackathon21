@@ -12,14 +12,21 @@
         components: {
             apexchart: VueApexCharts,
         },
-        async_comp:function(){
-            let vm = this;
-            this.$http
-                .get('http://34.245.194.249/wats/get-report/WB-4E5436373555029B/?date=2019-12-21%2013:19:55')
-                .then(function (response) {
-                    vm.series = response.data;
-                });
-            setTimeout('async_comp()', 1000);
+        methods:{
+            async_comp:function(){
+                let vm = this;
+                this.$http
+                    .get('http://127.0.0.1:8000/wats/get-report/WB-4E5436373555029B/?date=2019-12-21%2013:19:55')
+                    .then(function (response) {
+                        vm.series = response.data;
+                    });
+                setTimeout(function () {
+                    vm.async_comp();
+                }, 5000);
+            }
+        },
+        created: function(){
+            this.async_comp();
         },
         data: function () {
             return {

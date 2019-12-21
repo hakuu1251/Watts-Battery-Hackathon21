@@ -2,7 +2,7 @@
     <div class="cols-main pt-4">
         <div class="container">
             <div class="row">
-                <div class="col-md-12 col-xl-12"><div class="block-main">
+                <div class="col-md-12 col-xl-12"><div class="block-main mt-md">
                     <div class="title-block">
                         <div class="left-obj">
                             Consumption statistics
@@ -113,7 +113,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 pb-5"><div class="block-main">
+                <div class="col-md-6 pb-5"><div class="block-main mt-md">
                     <div class="title-block">
                         <div class="left-obj d-inline-block">
                             Energy usage
@@ -156,6 +156,12 @@
 
 <style scoped>
 
+    @media (max-width: 768px) {
+        .mt-md {
+            margin-top: 25px;
+        }
+    }
+
     @media (min-width: 1200px) {
         .container {
             max-width: 100%;
@@ -168,6 +174,11 @@
         }
     }
 
+    @media (max-width: 590px) {
+        .cols-main {
+            padding: 0px !important;
+        }
+    }
 
     .usage-stl {
         margin-left: 35px;

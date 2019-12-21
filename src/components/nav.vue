@@ -26,4 +26,10 @@
         margin: 0 auto;
         margin-top: 20px;
     }
+
+    @media (max-width: 590px) {
+        .nav-left {
+            display: none;
+        }
+    }
 </style>
