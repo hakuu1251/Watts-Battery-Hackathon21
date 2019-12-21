@@ -4,7 +4,7 @@ MAINTAINER reOiL <imig3001@yandex.ru>
 
 COPY . /app
 WORKDIR /app
+RUN chmod +x ent.sh
 
-RUN npm install
-RUN npm run build
-RUN cp dist /web-data/front/
+
+ENTRYPOINT ["/app/ent.sh"]
