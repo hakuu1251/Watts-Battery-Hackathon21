@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import App from './App.vue'
 
+
 Vue.config.productionTip = false
 
 new Vue({
@@ -33,7 +34,7 @@ Vue.use(VBScrollspyPlugin)
 
 // This imports the dropdown and table plugins
 import { DropdownPlugin, TablePlugin } from 'bootstrap-vue'
-// import axios from "axios";
+
 Vue.use(DropdownPlugin)
 Vue.use(TablePlugin)
 

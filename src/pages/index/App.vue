@@ -1,6 +1,5 @@
 <template>
     <div id="app">
-        {{ info }}
         <log />
     </div>
 </template>

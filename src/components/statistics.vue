@@ -11,6 +11,14 @@
         components: {
             apexchart: VueApexCharts,
         },
+        created() {
+            let vm = this;
+            this.$http
+                .get('http://127.0.0.1:8000/1.json')
+                .then(function (response) {
+                    vm.series = response.data;
+                });
+        },
         data: function () {
             return {
                 series: [{
