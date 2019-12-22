@@ -5,9 +5,9 @@
         <b-navbar-toggle target="nav-collapse"/>
 
         <b-collapse id="nav-collapse" is-nav>
-            <b-navbar-nav>
-                <b-nav-item href="#">Settings</b-nav-item>
-                <b-nav-item href="index.html">SingOut</b-nav-item>
+            <b-navbar-nav style="margin-top: 10px; border-top: 1px solid #1F2327;">
+                <b-nav-item href="#profile" v-b-modal="'profile'">Profile</b-nav-item>
+                <b-nav-item href="#settings" v-b-modal="'settings'">Settings</b-nav-item>
             </b-navbar-nav>
         </b-collapse>
     </b-navbar>

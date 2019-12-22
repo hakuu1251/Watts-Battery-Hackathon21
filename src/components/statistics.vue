@@ -24,7 +24,7 @@
                     });
                 setTimeout(function () {
                     vm.async_comp();
-                }, 5000);
+                }, 10000);
             }
         },
         created: function(){

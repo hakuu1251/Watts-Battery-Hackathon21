@@ -2,8 +2,10 @@
     <div id="app">
         <Nav1/>
         <Nav/>
+        <profile/>
         <logo/>
         <Main/>
+        <settings/>
     </div>
 </template>
 
@@ -12,18 +14,41 @@
     import Nav1 from '../../components/nav1.vue'
     import logo from '../../components/logo.vue'
     import Main from '../../components/main.vue'
-
+    import profile from '../../components/profile.vue'
+    import settings from '../../components/settings.vue'
 
     export default {
         name: 'app',
         components: {
-            Nav, Nav1, logo, Main
+            Nav,
+            Nav1,
+            logo,
+            Main,
+            profile,
+            settings
         }
     }
 </script>
 
 <style>
     @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+    @media (min-width: 590px) {
+        .modal-dialog  {
+            max-width: 60%;
+        }
+    }
+    .modal-content {
+        background-color: #292E33;
+        color: white;
+    }
+    .modal-header{
+        border-bottom: 1px solid #33393F;
+    }
+    .modal-footer{
+        border-top: 1px solid #33393F;
+    }
+
     .main-content {
         margin-left: 50px;
     }

@@ -1,7 +1,8 @@
 <template>
     <div class="nav-left">
-        <a href="#"><img src="../assets/user.png" class="nav-obj"></a>
-        <a href="#"><img src="../assets/settings.png" class="nav-obj pt-4"></a>
+        <a href="#profile" v-b-modal="'profile'"><img src="../assets/user.png" class="nav-obj"></a>
+        <a href="#settings" v-b-modal="'settings'"><img src="../assets/settings.png" class="nav-obj pt-4"></a>
+        <!--modals-->
     </div>
 </template>
 
@@ -12,6 +13,7 @@
 </script>
 
 <style scoped>
+
     .nav-left {
         width: 80px;
         height: 100%;

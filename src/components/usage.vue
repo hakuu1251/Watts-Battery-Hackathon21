@@ -10,6 +10,22 @@
         components:{
             apexchart: VueApexCharts,
         },
+        methods:{
+            async_comp1:function(){
+                let vm = this;
+                this.$http
+                    .get('/get-energy-usage/WB-4E5436373555029B/?date=2019-12-21%2013:19:55')
+                    .then(function (response) {
+                        vm.series = response.data;
+                    });
+                setTimeout(function () {
+                    vm.async_comp1();
+                }, 10000);
+            }
+        },
+        created: function(){
+            this.async_comp1();
+        },
         data: function () {
             return{
                 series: [{

@@ -4,9 +4,8 @@
             <div class="row">
                 <div class="col-md-12 col-xl-12"><div class="block-main mt-md">
                     <div class="title-block">
-                        <div class="left-obj">
-                            Consumption statistics
-                        </div>
+                        <div class="left-obj d-inline-block">Consumption statistics</div>
+                        <div class="right-obj "><img class="charge-stl" src="../assets/battery_charge.png"><span>90%</span></div>
                         <statistics class="pt-3"/>
                     </div>
                 </div></div>
@@ -109,7 +108,6 @@
                                     </a>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -122,24 +120,25 @@
                         <usage/>
                         <div class="title-block1">
                             <div class="left-err d-inline-block"><span class="radius-stl" style="border: 4px solid #C6512A;"></span><span class="usage-stl d-inline-block">Total consumption<br></span></div>
-                            <div class="right-err d-inline-block"><span>23 kWh<br></span></div>
+                            <div class="right-err d-inline-block"><span>{{ 1200 + ((meter_load_from_grid + meter_load_from_solar) - meter_load_from_battery) }} kWh<br></span></div>
                         </div>
                         <div class="title-block1">
                             <div class="left-err d-inline-block"><span class="radius-stl" style="border: 4px solid #80AE58;"></span><span class="usage-stl d-inline-block">Battery<br></span></div>
-                            <div class="right-err d-inline-block"><span>7 kWh<br></span></div>
+                            <div class="right-err d-inline-block"><span>{{ meter_load_from_battery }} kWh<br></span></div>
                         </div>
                         <div class="title-block1">
                             <div class="left-err d-inline-block"><span class="radius-stl" style="border: 4px solid #F0CC3D;"></span><span class="usage-stl d-inline-block">Solar<br></span></div>
-                            <div class="right-err d-inline-block"><span>12 kWh<br></span></div>
+                            <div class="right-err d-inline-block"><span>{{ meter_load_from_solar }} kWh<br></span></div>
                         </div>
                         <div class="title-block1">
                             <div class="left-err d-inline-block"><span class="radius-stl" style="border: 4px solid #5E79A8;"></span><span class="usage-stl d-inline-block">Grid<br></span></div>
-                            <div class="right-err d-inline-block"><span>4 kWh<br></span></div>
+                            <div class="right-err d-inline-block"><span>{{ meter_load_from_grid }} kWh<br></span></div>
                         </div>
                     </div>
                 </div></div>
             </div>
         </div>
+
     </div>
 </template>
 
@@ -150,7 +149,30 @@
         name: 'main',
         components: {
             statistics, usage
-        }
+        },
+        methods:{
+            async_comp1:function(){
+                let vm = this;
+                this.$http
+                    .get('/get-energy-usage/WB-4E5436373555029B/?date=2019-12-21%2013:19:55')
+                    .then(function (response) {
+                        vm = response.data;
+                    });
+                setTimeout(function () {
+                    vm.async_comp1();
+                }, 5000);
+            }
+        },
+        created: function(){
+            this.async_comp1();
+        },
+        data: function () {
+            return{
+                meter_load_from_grid: 17,
+                meter_load_from_solar: 7,
+                meter_load_from_battery: 228
+            }
+        },
     }
 </script>
 
@@ -346,9 +368,12 @@
 
     .col:hover {
         transition: 0.5s;
-        background-color: #16191C;
+        background-color: rgba(22,25,28,0.5);
         border-radius: 3px;
     }
 
-
+    .charge-stl {
+        background-size: cover;
+        width: 20px;
+    }
 </style>

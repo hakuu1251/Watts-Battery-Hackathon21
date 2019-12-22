@@ -1,18 +1,26 @@
 <template>
-    <form class="log-form"><img class="logo-form" src="../assets/watts_battery_white_logo.png">
-        <input class="form-control inp-form" type="text" placeholder="Login">
-        <input class="form-control inp-form mt-3" type="password" placeholder="Password">
-        <a class="btn btn-secondary btn-style mt-3" href="main.html">Let me in!</a>
-    </form>
+    <div class="container">
+        <form class="log-form"><img class="logo-form" src="../assets/watts_battery_white_logo.png">
+            <input class="form-control inp-form" type="text" placeholder="Login">
+            <input class="form-control inp-form mt-3" type="password" placeholder="Password">
+            <a class="btn btn-secondary btn-style mt-3 d-block" href="main.html">Let me in!</a>
+            <a href="#singup" v-b-modal="'singup'" class="singup pt-2 d-block">SingUp</a>
+        </form>
+    </div>
 </template>
 
 <script>
+
     export default {
-        name: "log"
+        name: "log",
     }
 </script>
 
 <style scoped>
+    .singup{
+        color: #495057;
+        font-size: 14px;
+    }
     .nav-left {
         width: 80px;
         height: 100%;
@@ -58,7 +66,7 @@
     }
 
     .inp-form {
-        width: 400px;
+        max-width: 320px;
         margin: 0 auto;
         border: 1px solid #FFFFFF;
         box-sizing: border-box;
@@ -70,6 +78,7 @@
 
     .btn-style {
         background: #FFCD34;
+        margin: 0 auto;
         border: 1px solid #FFFFFF;
         box-sizing: border-box;
         border-radius: 6px;
