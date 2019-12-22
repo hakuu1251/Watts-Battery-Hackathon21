@@ -24,7 +24,7 @@
                     });
                 setTimeout(function () {
                     vm.async_comp();
-                }, 10000);
+                }, 5000);
             }
         },
         created: function(){
@@ -43,10 +43,6 @@
                 }, {
                     name: 'Solar',
                     data: [{x: '05/06/2014', y: 0}, {x: '05/08/2014', y: 5}, {x: '05/12/2014', y: 14}]
-                }, {
-                    name: 'Grid',
-                    data: [{ x: '05/06/2014', y: 8}, { x: '05/08/2014', y: 12}, { x: '05/12/2014', y: 10}],
-
                 }],
                 chartOptions: {
                     dataLabels: {
@@ -80,7 +76,7 @@
                         floating: false,
                         labels: {
                             formatter: function(value){
-                                return value + " kWh";
+                                return value + " Wh";
                             },
                             style: {
                                 color: '#8e8da4',

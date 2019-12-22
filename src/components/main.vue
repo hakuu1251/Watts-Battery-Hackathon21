@@ -5,7 +5,7 @@
                 <div class="col-md-12 col-xl-12"><div class="block-main mt-md">
                     <div class="title-block">
                         <div class="left-obj d-inline-block">Consumption statistics</div>
-                        <div class="right-obj "><img class="charge-stl" src="../assets/battery_charge.png"><span>90%</span></div>
+                        <div class="right-obj "><img v-if="bool_connection" class="charge-stl" src="../assets/battery_charge.png"><img v-if="bool_connection==false" class="charge-stl" src="../assets/error.png">{{ bool_connection ? parseInt(battery_remaining_capacity*100/1450800) + "%" : "lost connection" }}</div>
                         <statistics class="pt-3"/>
                     </div>
                 </div></div>
@@ -15,7 +15,7 @@
                     <div class="block-main">
                         <div class="title-block">
                             <div class="left-obj d-inline-block"><span>Event Journal</span></div>
-                            <div class="right-obj d-inline-block"><span class="mr-1">for</span><select class="select-stl"><option value="0" selected="">10 Aug 2019</option><option value="1">11 Aug 2019</option><option value="2">12 Aug 2019</option></select></div>
+                            <div class="right-obj d-inline-block"><span class="mr-1">for</span><select class="select-stl"><option value="0" selected="">20 Dec 2019</option><option value="1">21 Dec 2019</option><option value="2">22 Dec 2019</option></select></div>
                         </div>
                         <div id="style-1" class="overflow-auto" style="height: 541px; padding: 0 20px;">
                             <div class="row">
@@ -111,34 +111,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6 pb-5"><div class="block-main mt-md">
-                    <div class="title-block">
-                        <div class="left-obj d-inline-block">
-                            Energy usage
-                        </div>
-                        <div class="right-obj d-inline-block"><span class="mr-1">for</span><select class="select-stl"><option value="0" selected="">10 Aug 2019</option><option value="1">11 Aug 2019</option><option value="2">12 Aug 2019</option></select></div>
-                        <usage/>
-                        <div class="title-block1">
-                            <div class="left-err d-inline-block"><span class="radius-stl" style="border: 4px solid #C6512A;"></span><span class="usage-stl d-inline-block">Total consumption<br></span></div>
-                            <div class="right-err d-inline-block"><span>{{ 1200 + ((meter_load_from_grid + meter_load_from_solar) - meter_load_from_battery) }} kWh<br></span></div>
-                        </div>
-                        <div class="title-block1">
-                            <div class="left-err d-inline-block"><span class="radius-stl" style="border: 4px solid #80AE58;"></span><span class="usage-stl d-inline-block">Battery<br></span></div>
-                            <div class="right-err d-inline-block"><span>{{ meter_load_from_battery }} kWh<br></span></div>
-                        </div>
-                        <div class="title-block1">
-                            <div class="left-err d-inline-block"><span class="radius-stl" style="border: 4px solid #F0CC3D;"></span><span class="usage-stl d-inline-block">Solar<br></span></div>
-                            <div class="right-err d-inline-block"><span>{{ meter_load_from_solar }} kWh<br></span></div>
-                        </div>
-                        <div class="title-block1">
-                            <div class="left-err d-inline-block"><span class="radius-stl" style="border: 4px solid #5E79A8;"></span><span class="usage-stl d-inline-block">Grid<br></span></div>
-                            <div class="right-err d-inline-block"><span>{{ meter_load_from_grid }} kWh<br></span></div>
-                        </div>
-                    </div>
-                </div></div>
+                <usage/>
             </div>
         </div>
-
     </div>
 </template>
 
@@ -151,10 +126,32 @@
             statistics, usage
         },
         methods:{
+            connection:function(){
+                let vm = this;
+                this.$http
+                    .get('/wats/get-bool-connection/WB-4E5436373555029B/?date=2019-12-21%2013:19:55')
+                    .then(function (response) {
+                        vm = response.data;
+                    });
+                setTimeout(function () {
+                    vm.connection();
+                }, 5000);
+            },
+            charge:function(){
+                let vm = this;
+                this.$http
+                    .get('/wats/get-energy-usage/WB-4E5436373555029B/?date=2019-12-21%2013:19:55')
+                    .then(function (response) {
+                        vm = response.data;
+                    });
+                setTimeout(function () {
+                    vm.charge();
+                }, 5000);
+            },
             async_comp1:function(){
                 let vm = this;
                 this.$http
-                    .get('/get-energy-usage/WB-4E5436373555029B/?date=2019-12-21%2013:19:55')
+                    .get('/wats/get-energy-usage/WB-4E5436373555029B/?date=2019-12-21%2013:19:55')
                     .then(function (response) {
                         vm = response.data;
                     });
@@ -166,11 +163,13 @@
         created: function(){
             this.async_comp1();
         },
-        data: function () {
+        data:function () {
             return{
                 meter_load_from_grid: 17,
                 meter_load_from_solar: 7,
-                meter_load_from_battery: 228
+                meter_load_from_battery: 228,
+                bool_connection: true,
+                battery_remaining_capacity: 1446575
             }
         },
     }

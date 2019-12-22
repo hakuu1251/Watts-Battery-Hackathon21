@@ -1,7 +1,7 @@
 <template>
     <div class="container">
         <form class="log-form"><img class="logo-form" src="../assets/watts_battery_white_logo.png">
-            <input class="form-control inp-form" type="text" placeholder="Login">
+            <input class="form-control inp-form" type="text" placeholder="Email or id">
             <input class="form-control inp-form mt-3" type="password" placeholder="Password">
             <a class="btn btn-secondary btn-style mt-3 d-block" href="main.html">Let me in!</a>
             <a href="#singup" v-b-modal="'singup'" class="singup pt-2 d-block">SingUp</a>

@@ -32,12 +32,6 @@
 
 <style>
     @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
-
-    @media (min-width: 590px) {
-        .modal-dialog  {
-            max-width: 60%;
-        }
-    }
     .modal-content {
         background-color: #292E33;
         color: white;

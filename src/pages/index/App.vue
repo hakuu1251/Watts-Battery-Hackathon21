@@ -29,7 +29,6 @@
     .body-stl {
         background-color: #1F2327;
     }
-
     @media (min-width: 590px) {
         .modal-dialog  {
             max-width: 60%;
