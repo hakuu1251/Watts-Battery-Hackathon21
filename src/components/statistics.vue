@@ -49,7 +49,7 @@
                     stroke: {
                         curve: 'straight',
                     },
-                    colors: ['#C6512A','#F0CC3D','#80AE58'
+                    colors: ['#80ae58','#f0cc3d','#5e79a8'
                     ],
                     xaxis: {
                         categories:["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
