@@ -47,6 +47,9 @@
                 }, 5000);
             }
         },
+        created: function(){
+            this.saving();
+        },
         data() {
             return {
                 max:'',
