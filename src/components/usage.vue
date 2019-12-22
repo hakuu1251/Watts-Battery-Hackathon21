@@ -8,19 +8,19 @@
             <apexchart type=bar height=350 :options="chartOptions" :series="series" />
             <div class="title-block1">
                 <div class="left-err d-inline-block"><span class="radius-stl" style="border: 4px solid #C6512A;"></span><span class="usage-stl d-inline-block">Total consumption<br></span></div>
-                <div class="right-err d-inline-block"><span>{{ meter_load_from_grid + meter_load_from_solar + meter_load_from_battery }} kWh<br></span></div>
+                <div class="right-err d-inline-block"><span>{{ meter_load_from_grid + meter_load_from_solar + meter_load_from_battery }} Wh<br></span></div>
             </div>
             <div class="title-block1">
                 <div class="left-err d-inline-block"><span class="radius-stl" style="border: 4px solid #80AE58;"></span><span class="usage-stl d-inline-block">Battery<br></span></div>
-                <div class="right-err d-inline-block"><span>{{ meter_load_from_battery }} kWh<br></span></div>
+                <div class="right-err d-inline-block"><span>{{ meter_load_from_battery }} Wh<br></span></div>
             </div>
             <div class="title-block1">
                 <div class="left-err d-inline-block"><span class="radius-stl" style="border: 4px solid #F0CC3D;"></span><span class="usage-stl d-inline-block">Solar<br></span></div>
-                <div class="right-err d-inline-block"><span>{{ meter_load_from_solar }} kWh<br></span></div>
+                <div class="right-err d-inline-block"><span>{{ meter_load_from_solar }} Wh<br></span></div>
             </div>
             <div class="title-block1">
                 <div class="left-err d-inline-block"><span class="radius-stl" style="border: 4px solid #5E79A8;"></span><span class="usage-stl d-inline-block">Grid<br></span></div>
-                <div class="right-err d-inline-block"><span>{{ meter_load_from_grid }} kWh<br></span></div>
+                <div class="right-err d-inline-block"><span>{{ meter_load_from_grid }} Wh<br></span></div>
             </div>
         </div>
     </div></div>

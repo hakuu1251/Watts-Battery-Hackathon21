@@ -39,7 +39,8 @@
                 this.$http
                     .get('/wats/get-economy-profile/WB-4E5436373555029B/?date=2019-12-21%2013:19:55')
                     .then(function (response) {
-                        vm = response.data;
+                        vm.data_value = response.data.data_value;
+                        vm.data_profit = response.data.data_profit;
                     });
                 setTimeout(function () {
                     vm.saving();
