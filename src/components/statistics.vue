@@ -33,16 +33,14 @@
         data: function () {
             return {
                 series: [{
-                    name: 'Total consumption',
-                    data: [{x: '05/06/2014', y: -3}, {x: '05/08/2014', y: -5}, {x: '05/12/2014', y: 5}],
-
-                }, {
                     name: 'Battery',
                     data: [{x: '05/06/2014', y: 7}, {x: '05/08/2014', y: 9}, {x: '05/12/2014', y: 4}]
-
                 }, {
                     name: 'Solar',
                     data: [{x: '05/06/2014', y: 0}, {x: '05/08/2014', y: 5}, {x: '05/12/2014', y: 14}]
+                }, {
+                    name: 'Grid',
+                    data: [{x: '05/06/2014', y: 8}, {x: '05/08/2014', y: 12}, {x: '05/12/2014', y: 10}],
                 }],
                 chartOptions: {
                     dataLabels: {
@@ -51,7 +49,7 @@
                     stroke: {
                         curve: 'straight',
                     },
-                    colors: ['#C6512A','#80AE58','#F0CC3D','#5E79A8'
+                    colors: ['#C6512A','#F0CC3D','#80AE58'
                     ],
                     xaxis: {
                         categories:["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
